@@ -9,6 +9,7 @@ SCRIPTS_DIR=`dirname $0`
 TEMPLATE_REPO=https://raw.githubusercontent.com/$SPAWNER_REPO
 TEMPLATE_FILE=$SPAWNER_MODE-$SPAWNER_VARIANT.json
 TEMPLATE_PATH=$TEMPLATE_REPO/$SPAWNER_VERSION/templates/$TEMPLATE_FILE
+SPAWNER_IMAGE=quay.io/redhat-gpte/workshop-spawner:7.1.0
 
 echo "### Checking spawner configuration."
 
@@ -90,13 +91,13 @@ spec:
         app: $NAME_PREFIX$WORKSHOP_NAME-prepull
     spec:
       initContainers:
-      - name: prepull-spawner 
+      - name: prepull-spawner
         image: $SPAWNER_IMAGE
         command: ["/bin/true"]
         resources:
           limits:
             memory: 128Mi
-      - name: prepull-terminal 
+      - name: prepull-terminal
         image: $TERMINAL_IMAGE
         command: ["/bin/true"]
         resources:
@@ -104,7 +105,7 @@ spec:
             memory: 128Mi
           requests:
             memory: 128Mi
-      - name: prepull-workshop 
+      - name: prepull-workshop
         image: $WORKSHOP_IMAGE
         command: ["/bin/true"]
         resources:
