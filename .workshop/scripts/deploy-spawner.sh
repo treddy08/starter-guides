@@ -9,7 +9,6 @@ SCRIPTS_DIR=`dirname $0`
 TEMPLATE_REPO=https://raw.githubusercontent.com/$SPAWNER_REPO
 TEMPLATE_FILE=$SPAWNER_MODE-$SPAWNER_VARIANT.json
 TEMPLATE_PATH=$TEMPLATE_REPO/$SPAWNER_VERSION/templates/$TEMPLATE_FILE
-SPAWNER_IMAGE=quay.io/redhat-gpte/workshop-spawner:7.1.0
 
 echo "### Checking spawner configuration."
 
@@ -92,7 +91,7 @@ spec:
     spec:
       initContainers:
       - name: prepull-spawner
-        image: $SPAWNER_IMAGE
+        image: quay.io/redhat-gpte/workshop-spawner:7.1.0
         command: ["/bin/true"]
         resources:
           limits:
@@ -147,7 +146,7 @@ if [ x"$SPAWNER_MODE" == x"learning-portal" ]; then
         --param HOMEROOM_LINK="$HOMEROOM_LINK" \
         --param WORKSHOP_TITLE="$WORKSHOP_TITLE" \
         --param WORKSHOP_DESCRIPTION="$WORKSHOP_DESCRIPTION" \
-        --param SPAWNER_IMAGE="$SPAWNER_IMAGE" \
+        --param SPAWNER_IMAGE="quay.io/redhat-gpte/workshop-spawner:7.1.0" \
         --param CONSOLE_IMAGE="$CONSOLE_IMAGE" \
         --param DOWNLOAD_URL="$DOWNLOAD_URL" \
         --param SPAWNER_ROLE="$SPAWNER_ROLE" \
@@ -177,7 +176,7 @@ if [ x"$SPAWNER_MODE" == x"user-workspace" ]; then
         --param HOMEROOM_LINK="$HOMEROOM_LINK" \
         --param WORKSHOP_TITLE="$WORKSHOP_TITLE" \
         --param WORKSHOP_DESCRIPTION="$WORKSHOP_DESCRIPTION" \
-        --param SPAWNER_IMAGE="$SPAWNER_IMAGE" \
+        --param SPAWNER_IMAGE="quay.io/redhat-gpte/workshop-spawner:7.1.0" \
         --param CONSOLE_IMAGE="$CONSOLE_IMAGE" \
         --param DOWNLOAD_URL="$DOWNLOAD_URL" \
         --param WORKSHOP_FILE="$WORKSHOP_FILE" \
@@ -203,7 +202,7 @@ if [ x"$SPAWNER_MODE" == x"hosted-workshop" ]; then
         --param HOMEROOM_LINK="$HOMEROOM_LINK" \
         --param WORKSHOP_TITLE="$WORKSHOP_TITLE" \
         --param WORKSHOP_DESCRIPTION="$WORKSHOP_DESCRIPTION" \
-        --param SPAWNER_IMAGE="$SPAWNER_IMAGE" \
+        --param SPAWNER_IMAGE="quay.io/redhat-gpte/workshop-spawner:7.1.0" \
         --param CONSOLE_IMAGE="$CONSOLE_IMAGE" \
         --param DOWNLOAD_URL="$DOWNLOAD_URL" \
         --param WORKSHOP_FILE="$WORKSHOP_FILE" \
@@ -228,7 +227,7 @@ if [ x"$SPAWNER_MODE" == x"terminal-server" ]; then
         --param HOMEROOM_LINK="$HOMEROOM_LINK" \
         --param WORKSHOP_TITLE="$WORKSHOP_TITLE" \
         --param WORKSHOP_DESCRIPTION="$WORKSHOP_DESCRIPTION" \
-        --param SPAWNER_IMAGE="$SPAWNER_IMAGE" \
+        --param SPAWNER_IMAGE="quay.io/redhat-gpte/workshop-spawner:7.1.0" \
         --param CONSOLE_IMAGE="$CONSOLE_IMAGE" \
         --param DOWNLOAD_URL="$DOWNLOAD_URL" \
         --param WORKSHOP_FILE="$WORKSHOP_FILE" \
@@ -249,7 +248,7 @@ if [ x"$SPAWNER_MODE" == x"jumpbox-server" ]; then
         --param SPAWNER_NAMESPACE="$NAMESPACE" \
         --param WORKSHOP_NAME="$WORKSHOP_NAME" \
         --param NAME_PREFIX="$NAME_PREFIX" \
-        --param SPAWNER_IMAGE="$SPAWNER_IMAGE" \
+        --param SPAWNER_IMAGE="quay.io/redhat-gpte/workshop-spawner:7.1.0" \
         --param DOWNLOAD_URL="$DOWNLOAD_URL" \
         --param WORKSHOP_FILE="$WORKSHOP_FILE" \
         --param WORKSHOP_MEMORY="$WORKSHOP_MEMORY" \
