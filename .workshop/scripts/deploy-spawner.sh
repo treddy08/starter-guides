@@ -10,6 +10,8 @@ TEMPLATE_REPO=https://raw.githubusercontent.com/$SPAWNER_REPO
 TEMPLATE_FILE=$SPAWNER_MODE-$SPAWNER_VARIANT.json
 TEMPLATE_PATH=$TEMPLATE_REPO/$SPAWNER_VERSION/templates/$TEMPLATE_FILE
 
+echo "template repo... $TEMPLATE_REPO"
+
 echo "### Checking spawner configuration."
 
 if [ x"$CLUSTER_SUBDOMAIN" == x"" ]; then
